@@ -10,11 +10,16 @@ const Draft: React.FC = () => {
     e.preventDefault();
     try {
       const body = { title, content };
-      await fetch(`/api/post`, {
+      const res = await fetch(`/api/post`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+      if (!res.ok) {
+        const err = await res.json();
+        alert("Failed to create post: " + (err.message || res.statusText));
+        return;
+      }
       await Router.push("/drafts");
     } catch (error) {
       console.error(error);
