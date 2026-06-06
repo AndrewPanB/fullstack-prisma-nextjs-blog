@@ -3,10 +3,22 @@ import { unstable_getServerSession } from "next-auth";
 import prisma from '../../../lib/prisma'
 import { authOptions } from '../../../lib/auth'
 
-// DELETE /api/post/:id
-// PUT /api/post/:id
+// GET    /api/post/:id  - 获取文章
+// DELETE /api/post/:id  - 删除文章
+// PUT    /api/post/:id  - 更新文章
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   const postId = req.query.id;
+
+  if (req.method === "GET") {
+    const post = await prisma.post.findUnique({
+      where: { id: String(postId) },
+      select: { id: true, title: true, content: true, published: true },
+    });
+    if (!post) {
+      return res.status(404).send({ message: 'Post not found' });
+    }
+    return res.json(post);
+  }
 
   const session = await unstable_getServerSession(req, res, authOptions);
   if (!session) {
