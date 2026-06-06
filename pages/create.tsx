@@ -140,26 +140,6 @@ const Draft: React.FC = () => {
           <div className="loading-card">
             <div className="loading-spinner" />
             <p>Loading post...</p>
-            <style jsx>{`
-              .loading-card {
-                background: #fff;
-                border: 1px solid #e8e8e8;
-                border-radius: 10px;
-                padding: 4rem 2rem;
-                text-align: center;
-                color: #999;
-              }
-              .loading-spinner {
-                width: 32px;
-                height: 32px;
-                border: 3px solid #e8e8e8;
-                border-top-color: #111;
-                border-radius: 50%;
-                animation: spin 0.7s linear infinite;
-                margin: 0 auto 14px;
-              }
-              @keyframes spin { to { transform: rotate(360deg); } }
-            `}</style>
           </div>
         ) : (
         <form onSubmit={submitData} className="create-form">
@@ -285,6 +265,24 @@ const Draft: React.FC = () => {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loading-card {
+          background: #fff;
+          border: 1px solid #e8e8e8;
+          border-radius: 10px;
+          padding: 4rem 2rem;
+          text-align: center;
+          color: #999;
+        }
+        .loading-spinner {
+          width: 32px;
+          height: 32px;
+          border: 3px solid #e8e8e8;
+          border-top-color: #111;
+          border-radius: 50%;
+          animation: spin 0.7s linear infinite;
+          margin: 0 auto 14px;
         }
 
         .create-header {
