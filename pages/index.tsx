@@ -130,9 +130,8 @@ const Blog: React.FC<Props> = (props) => {
 
         .hero-highlight {
           color: #111;
-          text-decoration: underline;
-          text-decoration-color: #ccc;
-          text-underline-offset: 6px;
+          font-weight: 900;
+          font-size: 1.05em;
         }
 
         .hero-subtitle {

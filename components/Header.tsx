@@ -95,6 +95,7 @@ const Header: React.FC = () => {
           height: 64px;
           display: flex;
           align-items: center;
+          gap: 24px;
         }
 
         /* ---- Logo ---- */
@@ -105,7 +106,6 @@ const Header: React.FC = () => {
           text-decoration: none;
           color: #111;
           flex-shrink: 0;
-          margin-right: 2rem;
         }
         .logo-mark { color: #000; }
         .logo-word {
@@ -120,8 +120,6 @@ const Header: React.FC = () => {
           display: flex;
           align-items: center;
           gap: 6px;
-          flex: 1;
-          justify-content: center;
         }
 
         .nav-tab {
@@ -131,7 +129,7 @@ const Header: React.FC = () => {
           padding: 10px 20px;
           font-size: 15px;
           font-weight: 600;
-          color: #777;
+          color: #111;
           text-decoration: none;
           border-radius: 10px;
           transition: color 0.15s, background 0.15s, box-shadow 0.15s;
@@ -254,8 +252,7 @@ const Header: React.FC = () => {
 
         /* ---- Responsive ---- */
         @media (max-width: 850px) {
-          .header-inner { padding: 0 1rem; }
-          .logo { margin-right: 0.75rem; }
+          .header-inner { padding: 0 1rem; gap: 16px; }
           .logo-word { display: none; }
           .nav { gap: 2px; }
           .nav-tab { padding: 8px 14px; font-size: 14px; }
